@@ -2016,7 +2016,7 @@ MonoBehaviour:
   scoreNeeded: 1
   gameWinScreen: {fileID: 2050470223}
   gameLoseScreen: {fileID: 1629869924}
-  loseTime: 15
+  loseTime: 150
 --- !u!4 &1948445289
 Transform:
   m_ObjectHideFlags: 0
