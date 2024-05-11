@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 18f81db7c3d178045851727d295038db, type: 2}
+  - {fileID: 2100000, guid: ea769a28c77fcbb49a54be21f5329430, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -105,7 +105,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.26
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -142,9 +142,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f0badde34568594796606c5759b4351, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  includeTypeA: 1
-  includeTypeB: 1
-  includeTypeC: 0
+  isTypeAConsumedInitially: 0
+  isTypeBConsumedInitially: 0
+  isTypeCConsumedInitially: 0
   itemPrefabA: {fileID: 154519657396197091, guid: 608841a876fd0564b9ae870ea2702b17, type: 3}
   itemPrefabB: {fileID: 8305554080241541853, guid: d643c1604360d0b4fb3da5381bc83dc3, type: 3}
   itemPrefabC: {fileID: 4516468383182408016, guid: 34818a18b5e96aa448b210689b6a09fb, type: 3}
+  destructionDelay: 25
+  logic: {fileID: 0}

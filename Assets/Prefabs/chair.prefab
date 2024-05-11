@@ -63,7 +63,7 @@ PrefabInstance:
     - target: {fileID: 2300000, guid: c7acbad2649a15647a7a4dfd8cceb5ac, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 284dec0203f9562498f6339ebf9cb7b4, type: 2}
+      objectReference: {fileID: 2100000, guid: 6a5e403646840464b91625893fc57f83, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -168,3 +168,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 1
+  destructionDelay: 12
+  startColor: {r: 1, g: 0.79818785, b: 0, a: 1}
+  endColor: {r: 0, g: 0, b: 0, a: 1}

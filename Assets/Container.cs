@@ -1,38 +1,53 @@
 using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
 
 public class Container : MonoBehaviour
-{   
-    [SerializeField]
-    private bool isTypeAConsumedInitially = false;
-    [SerializeField]
-    private bool isTypeBConsumedInitially = false;
-    [SerializeField]
-    private bool isTypeCConsumedInitially = false;
+{
+    [SerializeField] private bool isTypeAConsumedInitially = false;
+    [SerializeField] private bool isTypeBConsumedInitially = false;
+    [SerializeField] private bool isTypeCConsumedInitially = false;
 
     private List<Item.ItemType> consumedItemTypes = new List<Item.ItemType>();
-    private bool isPlayerNearby = false; // Flag to check if player is nearby
+    private bool isPlayerNearby = false;
 
-    [SerializeField]
-    private Item itemPrefabA; // Prefab for instantiating items of TypeA
-    [SerializeField]
-    private Item itemPrefabB; // Prefab for instantiating items of TypeB
-    [SerializeField]
-    private Item itemPrefabC; // Prefab for instantiating items of TypeC
+    [SerializeField] private Item itemPrefabA; // Prefab for instantiating items of TypeA
+    [SerializeField] private Item itemPrefabB; // Prefab for instantiating items of TypeB
+    [SerializeField] private Item itemPrefabC; // Prefab for instantiating items of TypeC
 
-    public LogicScript logic;
+    [SerializeField] private float destructionDelay = 30f; // Time in seconds after which the container will self-destruct
+
+    private Material containerMaterial; // Local material instance for this container
+
+    public LogicScript logic; // Reference to the logic script handling game rules
 
     private void Start()
     {
         InitializeConsumedItems();
         logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
+        CloneMaterial(); // Ensure each container has its own material instance
+        StartCoroutine(DestructionCountdown());
+    }
+
+    private void CloneMaterial()
+    {
+        // Fetch the MeshRenderer component and clone its material
+        MeshRenderer meshRenderer = GetComponent<MeshRenderer>();
+        containerMaterial = meshRenderer.material = new Material(meshRenderer.material);
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q) && isPlayerNearby)
+        if (isPlayerNearby)
         {
-            DestroyContainerAndSpawnItems();
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                DestroyContainerAndSpawnItems();
+            }
+            if (Input.GetKeyDown(KeyCode.J))
+            {
+                DisplayUnconsumedItemTypes();
+            }
         }
     }
 
@@ -63,6 +78,49 @@ public class Container : MonoBehaviour
                 ConsumeItem(playerController, item);
             }
         }
+    }
+
+    private void DisplayUnconsumedItemTypes()
+    {
+        string unconsumedTypes = "Unconsumed Item Types: ";
+        bool foundUnconsumed = false;
+
+        if (!consumedItemTypes.Contains(Item.ItemType.TypeA))
+        {
+            unconsumedTypes += "TypeA ";
+            foundUnconsumed = true;
+        }
+        if (!consumedItemTypes.Contains(Item.ItemType.TypeB))
+        {
+            unconsumedTypes += "TypeB ";
+            foundUnconsumed = true;
+        }
+        if (!consumedItemTypes.Contains(Item.ItemType.TypeC))
+        {
+            unconsumedTypes += "TypeC ";
+            foundUnconsumed = true;
+        }
+
+        logic.missing(unconsumedTypes);
+        Debug.Log(unconsumedTypes);
+    }
+
+    private IEnumerator DestructionCountdown()
+    {
+        float timeLeft = destructionDelay;
+        while (timeLeft > 0)
+        {
+            timeLeft -= Time.deltaTime;
+            UpdateContainerColor(timeLeft / destructionDelay); // Update color based on the proportion of time left
+            yield return null;
+        }
+        Destroy(gameObject); // Destroy the container when time runs out
+    }
+
+    private void UpdateContainerColor(float proportionLeft)
+    {
+        // Change color from white to red as the time decreases
+        containerMaterial.color = Color.Lerp(Color.black, Color.red, proportionLeft);
     }
 
     private void ConsumeItem(PlayerController playerController, Item item)
@@ -128,7 +186,6 @@ public class Container : MonoBehaviour
         }
     }
 
-    // New method to check if all item types are consumed
     private void CheckForAllItemsConsumed()
     {
         if (consumedItemTypes.Contains(Item.ItemType.TypeA) &&
@@ -139,12 +196,11 @@ public class Container : MonoBehaviour
         }
     }
 
-    // Define the special action to perform when all types are consumed
     private void PerformSpecialAction()
-    {   
+    {
         logic.addScore();
+        logic.checkWin();
         Debug.Log("All item types have been consumed! Special action performed.");
-        Destroy(gameObject);
-        // Add additional logic here for the special action
+        Destroy(gameObject); // Destroy this container
     }
 }
