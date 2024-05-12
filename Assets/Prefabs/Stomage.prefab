@@ -22,7 +22,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d68abfcba378a4f46847fa7f406b6ba6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.91
+      value: 0.73
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d68abfcba378a4f46847fa7f406b6ba6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -30,11 +30,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d68abfcba378a4f46847fa7f406b6ba6, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.71118164
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d68abfcba378a4f46847fa7f406b6ba6, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0.70300835
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d68abfcba378a4f46847fa7f406b6ba6, type: 3}
       propertyPath: m_LocalRotation.y
@@ -46,7 +46,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d68abfcba378a4f46847fa7f406b6ba6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: 88.66
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d68abfcba378a4f46847fa7f406b6ba6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -60,6 +60,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 4aadd197db37bee4fa7fad744c30bd1d, type: 2}
+    - target: {fileID: 3300000, guid: d68abfcba378a4f46847fa7f406b6ba6, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -3008246292707459220, guid: 4beba499163d7454a8ac15d8a5549a3e, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -101,8 +105,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.29209074, y: 0.5378138, z: 0.22831166}
-  m_Center: {x: -0.031889666, y: 0.26890683, z: -0.000000033527613}
+  m_Size: {x: 0.86, y: 1.15, z: 0.67}
+  m_Center: {x: -0.031889666, y: 0.45, z: -0.000000033527613}
 --- !u!65 &8305768741806755149
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -122,8 +126,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.5, y: 0.67, z: 0.35}
-  m_Center: {x: -0.031889666, y: 0.26890683, z: -0.000000033527613}
+  m_Size: {x: 1.4, y: 1.37, z: 1.1}
+  m_Center: {x: -0.031889666, y: 0.41, z: -0.000000033527613}
 --- !u!54 &624202456935880963
 Rigidbody:
   m_ObjectHideFlags: 0

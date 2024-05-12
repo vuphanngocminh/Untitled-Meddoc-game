@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 09cc238bd856b5d468789a6d2d0f48ed, type: 3}
       propertyPath: m_Name
-      value: vars
+      value: Heart
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 09cc238bd856b5d468789a6d2d0f48ed, type: 3}
       propertyPath: m_TagString
@@ -18,23 +18,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 09cc238bd856b5d468789a6d2d0f48ed, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.9
+      value: -4.282588
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 09cc238bd856b5d468789a6d2d0f48ed, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 09cc238bd856b5d468789a6d2d0f48ed, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -10.596632
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 09cc238bd856b5d468789a6d2d0f48ed, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 09cc238bd856b5d468789a6d2d0f48ed, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 09cc238bd856b5d468789a6d2d0f48ed, type: 3}
       propertyPath: m_LocalRotation.y
@@ -60,6 +60,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b1fc03ce872edb045841b02c061b5bb1, type: 2}
+    - target: {fileID: 3300000, guid: 09cc238bd856b5d468789a6d2d0f48ed, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -3676728085192693422, guid: 4beba499163d7454a8ac15d8a5549a3e, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -101,8 +105,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.8703934, y: 0.67471886, z: 0.8663232}
-  m_Center: {x: 0.0006444007, y: 0.33735937, z: -0.000000029802322}
+  m_Size: {x: 0.8703934, y: 0.94, z: 0.8663232}
+  m_Center: {x: 0.0006444007, y: 0.58, z: -0.000000029802322}
 --- !u!65 &7920625597857372093
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -122,8 +126,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.26, y: 0.79, z: 1.38}
-  m_Center: {x: 0.0006444007, y: 0.33735937, z: -0.000000029802322}
+  m_Size: {x: 1.26, y: 1.18, z: 0.96}
+  m_Center: {x: 0.0006444007, y: 0.56, z: -0.000000029802322}
 --- !u!54 &6210234785830713768
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -164,6 +168,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 2
-  destructionDelay: 10
-  startColor: {r: 0, g: 0.1901753, b: 1, a: 1}
+  destructionDelay: 100
+  startColor: {r: 1, g: 0.46666667, b: 0.5254902, a: 1}
   endColor: {r: 0, g: 0, b: 0, a: 1}

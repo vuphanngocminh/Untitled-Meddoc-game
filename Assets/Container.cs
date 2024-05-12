@@ -4,9 +4,9 @@ using System.Collections.Generic;
 
 public class Container : MonoBehaviour
 {
-    [SerializeField] private bool isTypeAConsumedInitially = false;
-    [SerializeField] private bool isTypeBConsumedInitially = false;
-    [SerializeField] private bool isTypeCConsumedInitially = false;
+    [SerializeField] public bool isTypeAConsumedInitially = false;
+    [SerializeField] public bool isTypeBConsumedInitially = false;
+    [SerializeField] public bool isTypeCConsumedInitially = false;
 
     private List<Item.ItemType> consumedItemTypes = new List<Item.ItemType>();
     private bool isPlayerNearby = false;
@@ -87,17 +87,17 @@ public class Container : MonoBehaviour
 
         if (!consumedItemTypes.Contains(Item.ItemType.TypeA))
         {
-            unconsumedTypes += "TypeA ";
+            unconsumedTypes += "Stomage ";
             foundUnconsumed = true;
         }
         if (!consumedItemTypes.Contains(Item.ItemType.TypeB))
         {
-            unconsumedTypes += "TypeB ";
+            unconsumedTypes += "Liver ";
             foundUnconsumed = true;
         }
         if (!consumedItemTypes.Contains(Item.ItemType.TypeC))
         {
-            unconsumedTypes += "TypeC ";
+            unconsumedTypes += "Heart ";
             foundUnconsumed = true;
         }
 
@@ -114,7 +114,7 @@ public class Container : MonoBehaviour
             UpdateContainerColor(timeLeft / destructionDelay); // Update color based on the proportion of time left
             yield return null;
         }
-        Destroy(gameObject); // Destroy the container when time runs out
+        gameObject.SetActive(false); // Destroy the container when time runs out
     }
 
     private void UpdateContainerColor(float proportionLeft)
@@ -157,7 +157,7 @@ public class Container : MonoBehaviour
             InstantiateNewItem(itemType);
         }
 
-        Destroy(gameObject); // Destroy the container itself
+        gameObject.SetActive(false); // Destroy the container itself
     }
 
     private void InstantiateNewItem(Item.ItemType itemType)
@@ -201,6 +201,6 @@ public class Container : MonoBehaviour
         logic.addScore();
         logic.checkWin();
         Debug.Log("All item types have been consumed! Special action performed.");
-        Destroy(gameObject); // Destroy this container
+        gameObject.SetActive(false); // Destroy this container
     }
 }

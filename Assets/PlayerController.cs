@@ -89,7 +89,7 @@ public class PlayerController : MonoBehaviour
         rb.useGravity = true;
     }
 
-    void TryPickUp()
+    public void TryPickUp()
     {
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, 1f);
         foreach (var hitCollider in hitColliders)
@@ -140,6 +140,7 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+
 
     public void DropObject()
     {

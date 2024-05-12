@@ -38,16 +38,18 @@ public class Item : MonoBehaviour
         }
     }
 
-    private IEnumerator ColorShiftAndDestructionCountdown()
+   private IEnumerator ColorShiftAndDestructionCountdown()
     {
         float timeLeft = destructionDelay;
         while (timeLeft > 0)
         {
+            if (!this.gameObject) yield break; // Stop coroutine if the GameObject is destroyed
+
             timeLeft -= Time.deltaTime;
             UpdateItemColor(timeLeft / destructionDelay); // Update color based on the proportion of time left
             yield return null;
         }
-        Destroy(gameObject); // Destroy the item when time runs out
+        gameObject.SetActive(false); // Set the GameObject's active state to false instead of destroying it
     }
 
     private void UpdateItemColor(float proportionLeft)
